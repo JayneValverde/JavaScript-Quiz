@@ -36,7 +36,7 @@ const timerEl = document.getElementById("timer");
 // let cAnswerList = ["No", "Yes"]
 // let dAnswerList = ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"]
 
-var questions = [
+var questions = [ 
     {
       title: 'What is David Bowies name in Twin Peaks?',
       choices: ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"],
@@ -72,7 +72,7 @@ function greeting() {
     quiz.style.display = "block"
     qn1Button.style.display = "block"
   
-
+// NEW NEW 
 function getQuestion() {
     // get current question object from array
     var currentQuestion = questions[currentQuestionIndex];
