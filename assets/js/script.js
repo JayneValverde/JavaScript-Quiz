@@ -25,17 +25,24 @@ let timerStart = 60;
 const timerEl = document.getElementById("timer");
 
 // Arrays for questions
-let questionList = [
-    "1: What is David Bowies name in Twin Peaks?",
-    "2: What date did Agent Dale Cooper Arrive in Twin Peaks?",
-    "3: Was James always cool?",
-    "4: Who killed Laura Palmer",
-]
+// let questionList = [
+//     "1: What is David Bowies name in Twin Peaks?",
+//     "2: What date did Agent Dale Cooper Arrive in Twin Peaks?",
+//     "3: Was James always cool?",
+//     "4: Who killed Laura Palmer",
+// ]
+// let aAnswerList = ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"]
+// let bAnswerList = ["February 24, 1989", "April 8, 1992", "March 31, 1987", "July 4, 1991"]
+// let cAnswerList = ["No", "Yes"]
+// let dAnswerList = ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"]
 
-let aAnswerList = ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"]
-let bAnswerList = ["February 24, 1989", "April 8, 1992", "March 31, 1987", "July 4, 1991"]
-let cAnswerList = ["No", "Yes"]
-let dAnswerList = ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"]
+var questions = [
+    {
+      title: 'What is David Bowies name in Twin Peaks?',
+      choices: ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"],
+      answer: 'Leeland Palmer',
+    },
+  ];
 
 // Hides the quiz until name is submited
 quiz.style.display = "none";
@@ -44,18 +51,18 @@ qn2Button.style.display = "none";
 qn3Button.style.display = "none";
 qn4Button.style.display = "none";
 
-function reset() {
-    answerA.style.color = "beige"; 
-    answerB.style.color = "beige";
-    answerC.style.color = "beige";
-    answerD.style.color = "beige";
+// function reset() {
+//     answerA.style.color = "beige"; 
+//     answerB.style.color = "beige";
+//     answerC.style.color = "beige";
+//     answerD.style.color = "beige";
     
-    question.innerHTML = questionList[iterationNumber];
-    answerA.innerHTML = aAnswerList[iterationNumber];
-    answerB.innerHTML = bAnswerList[iterationNumber];
-    answerC.innerHTML = cAnswerList[iterationNumber];
-    answerD.innerHTML = dAnswerList[iterationNumber];
-}
+//     question.innerHTML = questionList[iterationNumber];
+//     answerA.innerHTML = aAnswerList[iterationNumber];
+//     answerB.innerHTML = bAnswerList[iterationNumber];
+//     answerC.innerHTML = cAnswerList[iterationNumber];
+//     answerD.innerHTML = dAnswerList[iterationNumber];
+// }
 
 // Lets user submit name and reveals quiz upon submition 
 function greeting() {
@@ -64,12 +71,40 @@ function greeting() {
     greetingInput.style.display = "none";
     quiz.style.display = "block"
     qn1Button.style.display = "block"
-    question.innerHTML = questionList[iterationNumber];
-    // Answers
-    answerA.innerHTML = aAnswerList[iterationNumber];
-    answerB.innerHTML = bAnswerList[iterationNumber];
-    answerC.innerHTML = cAnswerList[iterationNumber];
-    answerD.innerHTML = dAnswerList[iterationNumber];
+  
+
+function getQuestion() {
+    // get current question object from array
+    var currentQuestion = questions[currentQuestionIndex];
+    
+    // update title with current question
+    var titleEl = document.getElementById('question-title');
+    titleEl.textContent = currentQuestion.title;
+    
+    // clear out any old question choices
+    choicesEl.innerHTML = '';
+    
+    // loop over choices
+    for (var i = 0; i < currentQuestion.choices.length; i++) {
+        // create new button for each choice
+        var choice = currentQuestion.choices[i];
+        var choiceNode = document.createElement('button');
+        choiceNode.setAttribute('class', 'choice');
+        choiceNode.setAttribute('value', choice);
+    
+        choiceNode.textContent = i + 1 + '. ' + choice;
+    
+        // display on the page
+        choicesEl.appendChild(choiceNode);
+    }
+    }
+
+    // question.innerHTML = questionList[iterationNumber];
+    // // Answers
+    // answerA.innerHTML = aAnswerList[iterationNumber];
+    // answerB.innerHTML = bAnswerList[iterationNumber];
+    // answerC.innerHTML = cAnswerList[iterationNumber];
+    // answerD.innerHTML = dAnswerList[iterationNumber];
 
     // quiz starts      
     timerId = setInterval(clocktick, 1000);

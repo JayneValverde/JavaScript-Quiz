@@ -21,6 +21,18 @@ body {
     text-align: center;
     color: beige;
 }
+.highScore {
+    color: beige;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+a {
+    color: beige;
+    style: none;
+}
 
 /* #id {
     display: flex;
