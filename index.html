@@ -7,40 +7,36 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>JavaScript quiz</title>
 </head>
-<body>
-
-    
-    <!-- Welcome Title -->
+<body>    
+    <!-- WELCOME TITLE -->
     <div id="intro">
+        <!-- HIGHSCORE STORAGE LINK -->
         <div class="highScore"><a href="highscores.html">Highscore</a></div>
         <h1>Welcome to my Quiz</h1>
         <h2 id="headerText">What is your name?</h2> 
-        
-    </div>
-
-    <div id ="greetingInput">
-        <input id="userName"> <br> <br>
-        <button onclick="greeting()">Submit</button>
     </div>
     
-    <!-- Quiz Portion -->
-    <div id="quiz">
+    <!-- USER NAME / SUBMIT BUTTON -->
+    <div id ="greetingInput">
+        <input id="userName"> <br> <br>
+        <button id="Start">Submit</button>
+    </div>
+
+    <!-- QUIZ PORTION-->
+    <div id="quizEl">
         <h3 id="question">  </h3>
-        <div id="answerA" onclick="aFunction()"></div>
-        <div id="answerB" onclick="bFunction()"></div>
-        <div id="answerC" onclick="cFunction()"></div>
-        <div id="answerD" onclick="dFunction()"></div> <br>
-
-        <div id="qn1Button" onclick="submitQn1()"><button>Submit Qn1</button></div>
-        <div id="qn2Button" onclick="submitQn2()"><button>Submit Qn2</button></div>
-        <div id="qn3Button" onclick="submitQn3()"><button>Submit Qn3</button></div>
-        <div id="qn4Button" onclick="submitQn4()"><button>Submit Qn4</button></div> <br>
-
+        <div id="choices"></div>
+        <!-- TIMER -->
         <h2 class="timer"> Time: <span id="timer"></span> </h2>
+    </div>
+
+    <!-- END SCORE PORTION -->
+    <div id="endScoreEl">
+        <h2>Your Score!</h2>
 
     </div>
 
-
+    <!-- JAVASCRIPT LINK -->
 <script src="assets/js/script.js"></script>
 </body>
 </html>

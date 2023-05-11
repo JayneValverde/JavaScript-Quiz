@@ -17,10 +17,18 @@ body {
     color: beige;
 }
 
-#quiz {
+#quizEl {
+    display: none;
     text-align: center;
     color: beige;
 }
+
+#endScoreEl {
+    display:none; 
+    text-align: center;
+    color: beige;
+}
+
 .highScore {
     color: beige;
     text-align: left;
@@ -31,7 +39,6 @@ body {
 
 a {
     color: beige;
-    style: none;
 }
 
 /* #id {
