@@ -117,26 +117,23 @@ function clocktick() {
     }
 }
 
-// Object for score
-let scoreObj = {
-    name: userName.value,
-    score: timerStart
-}
-
+// LOCAL STORAGE FOR HIGH SCORES
 let highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
 // QUIZ DONE
 function quizDone() {
+    let scoreObj = {
+        name: userName.value,
+        score: timerStart
+    }
+
     clearInterval(timerId);
     quizEl.style.display = "none";
     endScoreEl.style.display = "block";
     // scoreEl.innerHTML = timerStart;
-
+    console.log(scoreObj)
     highScores.push(scoreObj);
 
     localStorage.setItem("highScores",JSON.stringify(highScores))
 
 }
-
-
-

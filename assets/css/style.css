@@ -50,6 +50,10 @@ a {
     margin-left: 10px;
     font-size: 2em;
 }
+
+li {
+    color: beige;
+}
 /* #id {
     display: flex;
     justify-content: end;
