@@ -123,6 +123,16 @@ function quizDone() {
     quizEl.style.display = "none";
     endScoreEl.style.display = "block";
     scoreEl.innerHTML = timerStart;
+
+    // checkHighScore(account.score);
+
 }
 
-// const timerEl = document.getElementById("timer");
+let scoreObj = {
+    name: userName.value,
+    score: timerStart
+}
+
+let highScores =JSON.parse(localStorage.getItem("highScores")) || [];
+
+localStorage.setItem("highScores",JSON.stringify(highScores))
