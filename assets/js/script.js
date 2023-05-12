@@ -3,10 +3,11 @@ let userName = document.querySelector("#userName");
 let headerText = document.querySelector("#headerText");
 let greetingInput = document.querySelector("#greetingInput");
 
-let quizEl = document.querySelector("#quizEl"); 
+let quizEl = document.querySelector("#quizEl");
 let endScoreEl = document.querySelector("#endScoreEl");
+let scoreEl = document.querySelector("#scoreEl");
 
-let question = document.querySelector("#question");
+let questionEL = document.querySelector("#question");
 let choicesEl = document.querySelector("#choices");
 
 let iterationNumber = 0;
@@ -18,32 +19,32 @@ let timerStart = 60;
 const timerEl = document.getElementById("timer");
 
 // Question/Answer Array
-var questions = [ 
+var questions = [
     {
-        title: 'What is David Bowies name in Twin Peaks?',
-        choices: ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"],
-        answer: 'Phillip Jeffries',
+        title: 'What language defines the behavior of a web page?',
+        choices: ["HTML", "CSS", "XML", "JavaScript"],
+        answer: 'JavaScript',
     },
     {
-        title: 'What date did Agent Dale Cooper Arrice in Twin Peaks?',
-        choices: ["February 24, 1989", "April 8, 1992", "March 31, 1987", "July 4, 1991"],
-        answer: 'February 24, 1989',
+        title: 'In JavaScript, a symbol used to terminate a statment. ',
+        choices: ["Comma", "Semi-colon", "Parameters", "conjuction"],
+        answer: 'Semi-colon',
     },
     {
-        title: 'Was James always cool?',
-        choices: ["No", "Yes"],
-        answer: 'Yes',
+        title: 'JavaScript ignores extra spaces.',
+        choices: ["True", "False"],
+        answer: 'True',
     },
     {
-        title: 'Who killed Laura Palmer',
-        choices: ["Leeland Palmer", "Phillip Jeffries", "Gordon Cole", "Bobby Briggs"],
-        answer: 'Leeland Palmer',
+        title: 'Containers for holding values',
+        choices: ["Parameters", "Function", "Fixed", "Variable"],
+        answer: 'Variable',
     },
-    ]
+]
 
 // STARTBUTTON
-var startButton=document.getElementById("Start");
-startButton.addEventListener("click", function() {
+var startButton = document.getElementById("Start");
+startButton.addEventListener("click", function () {
     greeting();
     getQuestion();
 });
@@ -51,14 +52,14 @@ startButton.addEventListener("click", function() {
 // Lets user submit name and reveals quiz upon submition 
 function greeting() {
     headerText.innerHTML = "";
-    headerText.innerHTML ="Hello " + userName.value + ", Welcome. ";
+    headerText.innerHTML = "Hello " + userName.value + ", Welcome. ";
     greetingInput.style.display = "none";
     endScoreEl.style.display = "none";
     quizEl.style.display = "block"
 
     // Quiz starts      
     timerId = setInterval(clocktick, 1000);
-} 
+}
 
 // GETTING QUESTIONS
 var index = 0;
@@ -66,14 +67,14 @@ var index = 0;
 function getQuestion() {
     // get current question object from array
     var currentQuestion = questions[index];
-    
+
     // update title with current question
-    var titleEl = document.getElementById('question');
+    var titleEl = document.getElementById('questionEl');
     titleEl.textContent = currentQuestion.title;
-    
+
     // clear out any old question choices
     choicesEl.innerHTML = '';
-    
+
     // loop over choices
     for (var i = 0; i < currentQuestion.choices.length; i++) {
         // create new button for each choice
@@ -81,12 +82,12 @@ function getQuestion() {
         var choiceNode = document.createElement('button');
         choiceNode.setAttribute('class', 'choice');
         choiceNode.setAttribute('value', choice);
-    
+
         choiceNode.textContent = i + 1 + '. ' + choice;
         choiceNode.onclick = checkChoice;
         // display on the page
         choicesEl.appendChild(choiceNode);
-    } 
+    }
 
 }
 
@@ -94,7 +95,7 @@ function getQuestion() {
 function checkChoice(event) {
     var userChoice = event.target.value;
     // console.log(userChoice)
-    if(userChoice !== questions[index].answer){
+    if (userChoice !== questions[index].answer) {
         timerStart -= 10;
     }
     index++;
@@ -102,8 +103,8 @@ function checkChoice(event) {
         quizDone();
     }
     getQuestion()
-    
-    
+
+
 }
 
 // TIMER
