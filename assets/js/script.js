@@ -117,17 +117,7 @@ function clocktick() {
     }
 }
 
-// QUIZ DONE
-function quizDone() {
-    clearInterval(timerId);
-    quizEl.style.display = "none";
-    endScoreEl.style.display = "block";
-    scoreEl.innerHTML = timerStart;
-
-    // checkHighScore(account.score);
-
-}
-
+// Object for score
 let scoreObj = {
     name: userName.value,
     score: timerStart
@@ -135,4 +125,18 @@ let scoreObj = {
 
 let highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
-localStorage.setItem("highScores",JSON.stringify(highScores))
+// QUIZ DONE
+function quizDone() {
+    clearInterval(timerId);
+    quizEl.style.display = "none";
+    endScoreEl.style.display = "block";
+    // scoreEl.innerHTML = timerStart;
+
+    highScores.push(scoreObj);
+
+    localStorage.setItem("highScores",JSON.stringify(highScores))
+
+}
+
+
+
