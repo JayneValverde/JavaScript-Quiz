@@ -122,4 +122,7 @@ function quizDone() {
     clearInterval(timerId);
     quizEl.style.display = "none";
     endScoreEl.style.display = "block";
+    scoreEl.innerHTML = timerStart;
 }
+
+// const timerEl = document.getElementById("timer");
