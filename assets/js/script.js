@@ -75,7 +75,7 @@ function getQuestion() {
     // clear out any old question choices
     choicesEl.innerHTML = '';
 
-    // loop over choices
+    // For loop over choices
     for (var i = 0; i < currentQuestion.choices.length; i++) {
         // create new button for each choice
         var choice = currentQuestion.choices[i];
@@ -88,7 +88,6 @@ function getQuestion() {
         // display on the page
         choicesEl.appendChild(choiceNode);
     }
-
 }
 
 // Function for checking answers
@@ -103,8 +102,6 @@ function checkChoice(event) {
         quizDone();
     }
     getQuestion()
-
-
 }
 
 // Function for timer
@@ -117,10 +114,10 @@ function clocktick() {
     }
 }
 
-// LOCAL STORAGE FOR HIGH SCORES
+// Local storage for high scores
 let highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
-// QUIZ DONE
+// Function for Quiz Done
 function quizDone() {
     let scoreObj = {
         name: userName.value,
@@ -134,6 +131,7 @@ function quizDone() {
     console.log(scoreObj)
     highScores.push(scoreObj);
 
+    // Local storage string 
     localStorage.setItem("highScores",JSON.stringify(highScores))
 
 }
