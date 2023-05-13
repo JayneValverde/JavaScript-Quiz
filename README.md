@@ -1,5 +1,6 @@
 # Timed JavaScript-Quiz
 ## Jayné M. Valverde
+[Jayne's Timed JavaScript Quiz](https://jaynevalverde.github.io/JavaScript-Quiz/)
 
 
 ## Timed Quiz 

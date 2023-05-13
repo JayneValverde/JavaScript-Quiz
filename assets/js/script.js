@@ -14,11 +14,11 @@ let iterationNumber = 0;
 let qnChoice = "";
 let score = 0;
 
-// TIMER
+// Timer
 let timerStart = 60;
 const timerEl = document.getElementById("timer");
 
-// QUESTIONS/ANSWERS ARRAY
+// Questions/Answers Array
 var questions = [
     {
         title: 'What language defines the behavior of a web page?',
@@ -42,14 +42,14 @@ var questions = [
     },
 ]
 
-// START BUTTON
+// Function for start button
 var startButton = document.getElementById("Start");
 startButton.addEventListener("click", function () {
     greeting();
     getQuestion();
 });
 
-// Lets user submit name and reveals quiz upon submition 
+// Function that lets user submit name and reveals quiz upon submition 
 function greeting() {
     headerText.innerHTML = "";
     headerText.innerHTML = "Hello " + userName.value + ", Welcome. ";
@@ -57,11 +57,11 @@ function greeting() {
     endScoreEl.style.display = "none";
     quizEl.style.display = "block"
 
-    // QUIZ STARTS     
+    // Quiz start   
     timerId = setInterval(clocktick, 1000);
 }
 
-// GETTING QUESTIONS
+// Function for getting questions
 var index = 0;
 
 function getQuestion() {
@@ -91,7 +91,7 @@ function getQuestion() {
 
 }
 
-// CHECKING ANSWERS
+// Function for checking answers
 function checkChoice(event) {
     var userChoice = event.target.value;
     // console.log(userChoice)
@@ -107,7 +107,7 @@ function checkChoice(event) {
 
 }
 
-// TIMER
+// Function for timer
 function clocktick() {
     timerStart--
     // console.log("timestart", timeStart);
@@ -130,7 +130,7 @@ function quizDone() {
     clearInterval(timerId);
     quizEl.style.display = "none";
     endScoreEl.style.display = "block";
-    // scoreEl.innerHTML = timerStart;
+    endScoreEl.innerHTML = "Your Score! " + timerStart;
     console.log(scoreObj)
     highScores.push(scoreObj);
 
