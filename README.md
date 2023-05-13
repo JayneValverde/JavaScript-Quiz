@@ -13,9 +13,6 @@
 * You can then check you highscores by clicking 'Highscores' on the top left hand side of the screen. 
 * There you will see the user names that were inputed, along with the scores they recived after taking the quiz. 
 
-## Highscore storage
-* A local storage was set up in my orginal Javascript. This allows me to retrieve the highscores/name from the user to later retrieve in the 'highscores.html' page. 
-* A seperate JavaScrirpt (*'hsScript.js'*) was made specifically for the HighScores (*'highscores.html'*) page. <br> Here is where a funciton was created to retrieve the highscores/name from the local storage.
 
 ## JavaScript Quiz Preview
 ![screenshot one](./assets/images/quizvid.png)
