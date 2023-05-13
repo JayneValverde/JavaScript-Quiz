@@ -115,7 +115,7 @@ function clocktick() {
 }
 
 // Local storage for high scores
-let highScores =JSON.parse(localStorage.getItem("highScores")) || [];
+let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 // Function for Quiz Done
 function quizDone() {
@@ -132,6 +132,6 @@ function quizDone() {
     highScores.push(scoreObj);
 
     // Local storage string 
-    localStorage.setItem("highScores",JSON.stringify(highScores))
+    localStorage.setItem("highScores", JSON.stringify(highScores))
 
 }

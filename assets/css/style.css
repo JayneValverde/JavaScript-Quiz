@@ -43,8 +43,7 @@ a {
     color: beige;
 }
 
-/* highscore style */
-
+/* HIGHSCORE HTML STYLE*/
 #hsTitleEl {
     color: beige;
     text-align: left;
@@ -56,8 +55,3 @@ a {
 li {
     color: beige;
 }
-/* #id {
-    display: flex;
-    justify-content: end;
-
-} */
