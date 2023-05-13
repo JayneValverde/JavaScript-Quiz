@@ -18,7 +18,7 @@ let score = 0;
 let timerStart = 60;
 const timerEl = document.getElementById("timer");
 
-// Question/Answer Array
+// QUESTIONS/ANSWERS ARRAY
 var questions = [
     {
         title: 'What language defines the behavior of a web page?',
@@ -42,7 +42,7 @@ var questions = [
     },
 ]
 
-// STARTBUTTON
+// START BUTTON
 var startButton = document.getElementById("Start");
 startButton.addEventListener("click", function () {
     greeting();
@@ -57,7 +57,7 @@ function greeting() {
     endScoreEl.style.display = "none";
     quizEl.style.display = "block"
 
-    // Quiz starts      
+    // QUIZ STARTS     
     timerId = setInterval(clocktick, 1000);
 }
 
